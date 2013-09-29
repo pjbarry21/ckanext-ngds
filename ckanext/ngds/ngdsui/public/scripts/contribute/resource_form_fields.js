@@ -554,22 +554,22 @@ ngds.form.data_service_form_fields = [
                 {
                     'tag': 'option',
                     'attributes': {
-                        'value': 'wms',
-                        'text': 'WMS'
+                        'value': 'OGC:WMS',
+                        'text': 'OGC:WMS'
                     }
                 },
                 {
                     'tag': 'option',
                     'attributes': {
-                        'value': 'wfs',
-                        'text': 'WFS'
+                        'value': 'OGC:WFS',
+                        'text': 'OGC:WFS'
                     }
                 },
                 {
                     'tag': 'option',
                     'attributes': {
-                        'value': 'wcs',
-                        'text': 'WCS'
+                        'value': 'OGC:WCS',
+                        'text': 'OGC:WCS'
                     }
                 },
                 {

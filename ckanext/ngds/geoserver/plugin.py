@@ -4,6 +4,7 @@ import ckan.plugins as p
 from ckan.plugins import ITemplateHelpers, IRoutes, IResourcePreview
 import ckanext.ngds.geoserver.logic.action as action
 import ckanext.ngds.geoserver.model.GMLtoReclineJSON as recline
+import ckanext.ngds.geoserver.model.OGCtoReclinePreview as ogc_recline
 import ckanext.datastore.logic.auth as auth
 import ckanext.datastore.logic.action as ds_action
 from ckanext.ngds.geoserver.model.ShapeFile import Shapefile
@@ -111,16 +112,18 @@ class GeoserverPlugin(p.SingletonPlugin):
     # that is compatible with recline.  Bind that JSON object to the
     # CKAN resource in order to pass it client-side.
     def setup_template_variables(self, context, data_dict):
-        if data_dict.get("resource", {}).get("protocol", {}) == "OGC:WFS":
-            armchair = recline.GMLtoReclineJS()
+        resource = data_dict.get("resource", {})
+        if resource.get("protocol", {}) == "OGC:WMS":
+            resourceURL = resource.get("url", {})
+            armchair = ogc_recline.WMSDataServiceToReclineJS(resourceURL)
+            ottoman = armchair.recline_ogc_wms(data_dict)
+            p.toolkit.c.resource["wms_url"] = ottoman["url"]
+            p.toolkit.c.resource["layer_name"] = ottoman["layer"].lower()
+        elif resource.get("protocol", {}) == "OGC:WFS":
+            resourceURL = resource.get("url", {})
+            armchair = ogc_recline.WFSDataServiceToReclineJS(resourceURL)
             reclineJSON = armchair.MakeReclineJSON(data_dict)
             p.toolkit.c.resource["reclineJSON"] = reclineJSON
-        elif data_dict.get("resource", {}).get("protocol", {}) == "OGC:WMS":
-            armchair = recline.GMLtoReclineJS()
-            wms_url = armchair.makeGetWMSURL(data_dict)
-            p.toolkit.c.resource["wms_url"] = wms_url
-            p.toolkit.c.resource["layer_name"] = data_dict["resource"]["layer_name"].lower()
-#            p.toolkit.c.resource["geom_extent"] = data_dict["resource"]["geom_extent"]
 
     # Render the jinja2 template which builds the recline preview
     def preview_template(self, context, data_dict):

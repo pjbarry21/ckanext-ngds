@@ -107,9 +107,11 @@ var populate_lat_lng_fields = function (dom_marker, field_list) {
 var populate_drop_down_list = function(dom_element, field_list) {
     fields = field_list;
     dom_ele = dom_element;
-
     for(var val in fields) {
         $("<option />", {value: fields[val], text: fields[val]}).appendTo(dom_ele);
+
+        if(this.fields[val] === "LatDegree"){$("#lat_field_marker").val("LatDegree");}
+        if(this.fields[val] === "LongDegree"){$("#lng_field_marker").val("LongDegree");}
     }
 };
 
@@ -131,7 +133,7 @@ var populate_geoserver_layer_name = function (dom_marker) {
             }
         ]};
     $(".gs_lyr_name_marker").remove();
-    marker.after(Mustache.render(ngds.structured_form_template, gs_lyr_name_struct));
+    marker.append(Mustache.render(ngds.structured_form_template, gs_lyr_name_struct));
 };
 
 var publish_as_ogc = function(gs_lyr_name, resource_id, package_id, lat_field, lng_field){
@@ -168,6 +170,7 @@ var make_datastore_search_url = function() {
 
 var get_csv_fields = function() {
     var field_list;
+    console.log("{{ res.id }}");
     $.ajax({
         url:make_datastore_search_url(),
         data:{"resource_id":("{{ res.id }}")},
@@ -179,6 +182,7 @@ var get_csv_fields = function() {
 };
 
 var make_field_list = function(data){
+    console.log(data);
     var field_list = [];
     var index;
     var fields = data.result.fields;
@@ -198,16 +202,17 @@ $(document).ready(function() {
   if((window.spatialize_handler===null || typeof window.spatialize_handler==='undefined') && ($(".spatialize").length>0)) {
         window.spatialize_handler = 'defined';
         var resource_format = ("{{ res.format }}");
-        var lyr_name_marker = $(".resource-item");
+        $(".resource-item").after('<div id="user-input"></div>');
+        var lyr_name_marker = $("#user-input");
         $(".spatialize").click(function(){
             populate_geoserver_layer_name(lyr_name_marker);
             if (resource_format === "CSV"){
                 get_csv_fields();
                 $(".enter_gs_lyr_name").remove();
-                $("#gs_lyr_name_input").after('<button class="btn enter_gs_lyr_name" style="margin-left:10px;" value="{{ res.id }},{{ pkg.id }}">Publish</button>');
+                $("#user-input").after('<button class="btn enter_gs_lyr_name" style="margin-left:10px;" value="{{ res.id }},{{ pkg.id }}">Publish</button>');
             } else {
                 $(".enter_gs_lyr_name").remove();
-                $("#gs_lyr_name_input").after('<button class="btn enter_gs_lyr_name" style="margin-left:10px;" value="{{ res.id }},{{ pkg.id }}">Publish</button>');
+                $("#user-input").after('<button class="btn enter_gs_lyr_name" style="margin-left:10px;" value="{{ res.id }},{{ pkg.id }}">Publish</button>');
             }
 
             $(".enter_gs_lyr_name").click(function(ev) {
