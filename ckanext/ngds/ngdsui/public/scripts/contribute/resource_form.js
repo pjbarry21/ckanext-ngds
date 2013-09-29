@@ -129,6 +129,7 @@ var render_forms = function (value) {
         }
 
         if (value === "data-service") {
+            console.log("dataservice");
             $(".form-body").replaceWith(form_generator(ngds.form.data_service_form_fields));
             position_file_uploader();
         }
@@ -146,10 +147,22 @@ var render_forms = function (value) {
                 $("[name='distributor_email']").val(dict['email']);
             });
         }
-        setTimeout(function() {window.onbeforeunload=null;;},100);
-        setTimeout(function() {window.onbeforeunload=null;;},500);
-        setTimeout(function() {window.onbeforeunload=null;;},1500);
-        setTimeout(function() {window.onbeforeunload=null;;},2000);
+        setTimeout(function () {
+            window.onbeforeunload = null;
+            ;
+        }, 100);
+        setTimeout(function () {
+            window.onbeforeunload = null;
+            ;
+        }, 500);
+        setTimeout(function () {
+            window.onbeforeunload = null;
+            ;
+        }, 1500);
+        setTimeout(function () {
+            window.onbeforeunload = null;
+            ;
+        }, 2000);
         console.log(window.onbeforeunload);
         ngds.publish("Forms.reinitialize", {});
 
