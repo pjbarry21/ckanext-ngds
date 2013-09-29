@@ -31,7 +31,10 @@
 {% else %}
 <form class="dataset-form dataset-resource-form form-horizontal" action="/dataset/new_resource/{{pkg_name}}" method="post" data-module="resource-form basic-form">
 {% endif %}
+    <input type="hidden" name="resource_type" value="file"/>
   <div data-module="resource-upload-field"></div>
+    {% block stages %}
+    {% if stage %}
   <ol class="stages stage-2">
     <li class="first-stage complete">
         <button class="highlight" name="save" value="go-dataset" type="submit">1. Create dataset</button>
@@ -43,10 +46,11 @@
         <span class="highlight">3. Dataset Metadata</span>
     </li>
   </ol>
+    {% endif %}
+    {% endblock %}
 
   <div class="main-controls">
       <div class="radio-section">
-        <input type="hidden" name="dataset_name" value="{{pkg_name}}"/>
         <!--<input type="radio" id="resource_type-selection" name="upload_type_selection" value="upload_type"/>-->
         <!--<label for="resource_type-selection">Upload a file</label><br>-->
           {% if data['resource_format'] %}
@@ -104,14 +108,17 @@
         {% endif %}
       {% endif %}
     {% endblock %}
-
-        {% block previous_button %}
-        <button type="submit" name="save" value="go-dataset">{{ _('Previous Page') }}</button>
-        {% endblock %}
-        {% block again_button %}
-        <button type="submit" name="save" value="again">{{ _('Save and Add Another') }}</button>
-        {% endblock %}
-        <button type="button" class="{% block pull_right %}{% endblock %}" id="go-metadata">{% block save_button_text %}{{ _('Next: Additional Metadata') }}{% endblock %}</button>
+        {% if stage %}
+            {% block previous_button %}
+                <button type="submit" name="save" value="go-dataset">{{ _('Previous Page') }}</button>
+            {% endblock %}
+            {% block again_button %}
+                <button type="submit" name="save" value="again">{{ _('Save and Add Another') }}</button>
+            {% endblock %}
+            <button type="button" class="{% block pull_right %}{% endblock %}" id="go-metadata">{% block save_button_text %}{{ _('Next: Additional Metadata') }}{% endblock %}</button>
+        {% else %}
+            <button class="btn btn-primary pull-right" name="save" value="go-dataset-complete" type="submit">{{ _('Add') }}</button>
+        {% endif %}
         <!-- <button type="button" name="save" value="go-metadata">Additional Metadata</button> -->
 
     </div>
