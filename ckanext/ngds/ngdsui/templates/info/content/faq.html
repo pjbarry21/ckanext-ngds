@@ -135,9 +135,9 @@ ___NGDS_HEADER_END___ #}
 
 <p><strong><a id="node" name="node"></a>Q: How do I configure a server to act as a node using the NGDS Node-in-a-Box CKAN Extension?</strong></p>
 
-<p><strong>A:</strong> To configure a server to act as a node, you will need to install the NGDS Node-in-a-Box CKAN Extension on your server and configure the installation properly. A free installation package that will install the NGDS Node-in-a-Box software on Ubuntu Linux servers is available at the <a href="https://github.com/ngds/ckanext-ngds" target="_blank">NGDS CKAN Extension GitHub</a>. Though the NGDS Node-in-a-Box CKAN Extension can be installed on Windows servers, no installation package or instructions exist for doing so at this time.</p>
+<p><strong>A:</strong> To configure a server to act as a node, you will need to install the NGDS Node-in-a-Box CKAN Extension on your server and configure the installation properly. A free installation package that will install the NGDS Node-in-a-Box software on Ubuntu Linux servers is available at the <a href="https://github.com/ngds/ckanext-ngds" target="_blank">NGDS CKAN Extension GitHub</a>. Though the NGDS Node-in-a-Box CKAN Extension can be installed on Windows servers, no installation package or instructions exist at this time.</p>
 
-<p>Having installed the NGDS Node-in-a-Box CKAN Extension on your server and configured the installation, your server will now provide users with a web-accessible interface with which they can create and manage metadata records and specify or upload data resources. Before these metadata records can be harvested by a CKAN aggregator, you must send an e-mail to the administrator of a CKAN aggregator; the administrator will instruct the CKAN aggregator to harvest metadata records from your server.</p>
+<p>Having installed the NGDS Node-in-a-Box CKAN Extension on your server and configured the installation, your server will provide users with a web-accessible interface with which they can create and manage metadata records and specify or upload data resources. Metadata records that have been added through your instance of the NGDS Node-in-a-Box can then be harvested by an aggregator to be viewed alongside other metadata records harvested by the aggregator. To initiate the harvesting process, you must send an e-mail to the administrator of a CKAN aggregator who can configure their CKAN aggregator to harvest metadata records from your instance of the NGDS Node-in-a-Box CKAN Extension.</p>
 
 <p><strong><a id="software" name="software"></a>Q: Does installation of the NGDS Node-in-a-Box on a server require any specific back-end software, such as GeoServer or ArcGIS Server?</a></strong></p>
 
@@ -147,16 +147,18 @@ ___NGDS_HEADER_END___ #}
 
 <p><strong>A:</strong> A CKAN node, such as the NGDS Node-in-a-Box, is a software package that can be installed on servers; when installed and configured, the server on which the software package has been installed provides users with a web-accessible interface with which users can create and manage metadata records and specify or upload data resources.</p>
 
-<p>By contrast, a CKAN aggregator is a software package installed on servers that automatically harvests metadata from registered CKAN nodes. A CKAN aggregator can harvest metadata from a theoretically infinite number of nodes, though in practice, CKAN agregators run into problems when harvesting metadata from more than 100 nodes at a time. Fortunately, CKAN aggregators can also harvest metadata from CKAN aggregators, which can be used to circumvent this problem somewhat.</p>
+<p>By contrast, a CKAN aggregator is a software package installed on servers that automatically harvests metadata from registered CKAN nodes to create a web-accessible catalog of metadata records. A CKAN aggregator can harvest metadata from a theoretically infinite number of nodes, though in practice, CKAN aggregators run into problems when harvesting metadata from more than 100 nodes at a time. Fortunately, CKAN aggregators can also harvest metadata from CKAN aggregators, which can be used to circumvent this problem somewhat.</p>
 
 <p>Users who connect to a given CKAN node will only be able to read metadata records that have been created or managed on that particular node, whereas users who connect to a CKAN aggregator will be able to read all metadata records that have been harvested by the aggregator.</p>
 
 <p><strong><a id="harvest" name="harvest"></a>How is metadata harvested from instances of the NGDS Node-in-a-Box CKAN Extension?</a></strong></p>
 
-<p><strong>A:</strong> CKAN aggregators automatically harvest metadata from registered nodes via the <strong>catalog service for the web (CSW)</strong> protocol. A CKAN aggregator can be configured to harvest metadata from any CSW. Metadata harvesting cannot be triggered from a CKAN node.</p>
+<p><strong>A:</strong> CKAN aggregators automatically harvest metadata from registered nodes via the <strong>catalog service for the web (CSW)</strong> protocol. Catalog services are web services designed to query metadata records. A CKAN aggregator can be configured to harvest metadata from any CSW.</p>
+
+<p>CKAN aggregators harvest metadata from designated CKAN nodes or catalog services automatically. To submit a request for automatic metadata harvesting from your node or catalog service, contact an administrator of the desired CKAN aggregator.</p>
 
 <p><strong><a id="upload" name="upload"></a>Users who share data via the NGDS Node-in-a-Box CKAN Extension can opt to either link to their data or upload their data; where is uploaded data stored?</a></strong></p>
 
-<p><strong>A:</strong> Data uploaded via the NGDS Node-in-a-Box CKAN Extension is stored on the server on which a given instance of the NGDS Node-in-a-Box Extension has been installed. The specific directory in which uploaded data is stored can be configured manually by the administrator of the server on which a given instance of the NGDS Node-in-a-Box CKAN Extension has been installed.</p>
+<p><strong>A:</strong> Data uploaded via a given instance of the NGDS Node-in-a-Box CKAN Extension is stored on the server on which said instance of the NGDS Node-in-a-Box CKAN Extension has been installed. The specific directory in which uploaded data is stored can be configured manually by the administrator of the server on which a given instance of the NGDS Node-in-a-Box CKAN Extension has been installed.</p>
 
 
