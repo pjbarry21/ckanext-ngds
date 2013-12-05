@@ -79,7 +79,7 @@ ___NGDS_HEADER_END___ #}
 <img alt="" src="/images/help/geopp.jpg" style="float: right; width: 600px; margin-right: 0;" />
 <p><strong>Developer FAQs</strong></p>
 
-<p>Derived from a session at the ESIP Summer Meeting in 2012, for more information see <a href="http://commons.esipfed.org/node/447" target="_blank"><em>Implementing USGIN, a Distributed Data Network for Geoscience Information</em></a>. For additional developer questions, visit the <a href="/ngds/develop">Developers page</a> or <a href="http://lab.usgin.org" target="_blank">USGIN Lab</a>.</p>
+<p>Derived from a session at the ESIP Summer Meeting in 2012, for more information see <a href="http://commons.esipfed.org/node/447" target="_blank"><em>Implementing USGIN, a Distributed Data Network for Geoscience Information</em></a>. For additional developer questions, visit the <a href="/ngds/develop">Developers page</a> or <a href="http://lab.usgin.org" target="_blank">USGIN Lab</a>. Some questions also derived from the DOE Tech Project Webinar on December 4, 2013.</p>
 
 <p><strong>Q: <a href="#excel">How was Excel chosen, over other tools such as Access or other database files, for standard input into the system? How is the data compiled or expected to be compiled on the provider’s side of things in to these Excel files? What is the process for exporting it to these Excel files? That is, what is the burden on the contributor and how do they feel about the process?</a></strong></p>
 
@@ -93,6 +93,17 @@ ___NGDS_HEADER_END___ #}
 
 <p><strong>Q: <a href="#validation">Does the validation on the metadata only review that the field is complete or are their syntax checks in place as well?</a></strong></p>
 
+<p><strong>Q: <a href="#node">How do I configure a server to act as a node using the NGDS Node-in-a-Box CKAN Extension?</a></strong></p>
+
+<p><strong>Q: <a href="#software">Does installation of the NGDS Node-in-a-Box on a server require any specific back-end software, such as GeoServer or ArcGIS Server?</a></strong></p>
+
+<p><strong>Q: <a href="#relationship">What is the relationship between CKAN nodes and aggregators?</a></strong></p>
+
+<p><strong>Q: <a href="#harvest">How is metadata harvested from instances of the NGDS Node-in-a-Box CKAN Extension?</a></strong></p>
+
+<p><strong>Q: <a href="#upload">Users who share data via the NGDS Node-in-a-Box CKAN Extension can opt to either link to their data or upload their data; where is uploaded data stored?</a></strong></p>
+
+<p>&nbsp</p>
 
 <p><strong><a id="excel" name="excel"></a>Q: How was Excel chosen, over other tools such as Access or other database files, for standard input into the system? How is the data compiled or expected to be compiled on the provider’s side of things in to these Excel files? What is the process for exporting it to these Excel files? That is, what is the burden on the contributor and how do they feel about the process?</strong></p>
 
@@ -121,5 +132,31 @@ ___NGDS_HEADER_END___ #}
 <p><strong><a id="validation" name="validation"></a>Q: Does the validation on the metadata only review that the field is complete or are their syntax checks in place as well?</strong></p>
 
 <p><strong>A:</strong> There is some level of "syntax" checking going on, but it isn't particularly robust. It’s more like logic tests: if you told me the author's email address then you don't have to tell me her phone number—or, your abstract ought to have more than 50 characters in it.</p>
+
+<p><strong><a id="node" name="node"></a>Q: How do I configure a server to act as a node using the NGDS Node-in-a-Box CKAN Extension?</strong></p>
+
+<p><strong>A:</strong> To configure a server to act as a node, you will need to install the NGDS Node-in-a-Box CKAN Extension on your server and configure the installation properly. A free installation package that will install the NGDS Node-in-a-Box software on Ubuntu Linux servers is available at the <a href="https://github.com/ngds/ckanext-ngds" target="_blank">NGDS CKAN Extension GitHub</a>. Though the NGDS Node-in-a-Box CKAN Extension can be installed on Windows servers, no installation package or instructions exist for doing so at this time.</p>
+
+<p>Having installed the NGDS Node-in-a-Box CKAN Extension on your server and configured the installation, your server will now provide users with a web-accessible interface with which they can create and manage metadata records and specify or upload data resources. Before these metadata records can be harvested by a CKAN aggregator, you must send an e-mail to the administrator of a CKAN aggregator; the administrator will instruct the CKAN aggregator to harvest metadata records from your server.</p>
+
+<p><strong><a id="software" name="software"></a>Q: Does installation of the NGDS Node-in-a-Box on a server require any specific back-end software, such as GeoServer or ArcGIS Server?</a></strong></p>
+
+<p><strong>A:</strong> No, the NGDS Node-in-a-Box CKAN extension can be installed on an Ubuntu Linux server without any specific back-end software.</p>
+
+<p><strong><a id="relationship" name="relationship"></a>Q: What is the relationship between CKAN nodes and aggregators?</strong></p>
+
+<p><strong>A:</strong> A CKAN node, such as the NGDS Node-in-a-Box, is a software package that can be installed on servers; when installed and configured, the server on which the software package has been installed provides users with a web-accessible interface with which users can create and manage metadata records and specify or upload data resources.</p>
+
+<p>By contrast, a CKAN aggregator is a software package installed on servers that automatically harvests metadata from registered CKAN nodes. A CKAN aggregator can harvest metadata from a theoretically infinite number of nodes, though in practice, CKAN agregators run into problems when harvesting metadata from more than 100 nodes at a time. Fortunately, CKAN aggregators can also harvest metadata from CKAN aggregators, which can be used to circumvent this problem somewhat.</p>
+
+<p>Users who connect to a given CKAN node will only be able to read metadata records that have been created or managed on that particular node, whereas users who connect to a CKAN aggregator will be able to read all metadata records that have been harvested by the aggregator.</p>
+
+<p><strong><a id="harvest" name="harvest"></a>How is metadata harvested from instances of the NGDS Node-in-a-Box CKAN Extension?</a></strong></p>
+
+<p><strong>A:</strong> CKAN aggregators automatically harvest metadata from registered nodes via the <strong>catalog service for the web (CSW)</strong> protocol. A CKAN aggregator can be configured to harvest metadata from any CSW. Metadata harvesting cannot be triggered from a CKAN node.</p>
+
+<p><strong><a id="upload" name="upload"></a>Users who share data via the NGDS Node-in-a-Box CKAN Extension can opt to either link to their data or upload their data; where is uploaded data stored?</a></strong></p>
+
+<p><strong>A:</strong> Data uploaded via the NGDS Node-in-a-Box CKAN Extension is stored on the server on which a given instance of the NGDS Node-in-a-Box Extension has been installed. The specific directory in which uploaded data is stored can be configured manually by the administrator of the server on which a given instance of the NGDS Node-in-a-Box CKAN Extension has been installed.</p>
 
 
