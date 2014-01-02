@@ -655,7 +655,7 @@ label_attribute_mapping = {
 }
 
 res_label_attribute_mapping = {
-    'dataset name': 'Dataset Name',
+    'dataset name': 'Collection Name',
     'distributor': 'Distributor',
     'id': 'Id',
     'layer': 'Layer',

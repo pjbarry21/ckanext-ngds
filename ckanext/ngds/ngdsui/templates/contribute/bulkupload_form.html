@@ -16,7 +16,7 @@ ___NGDS_HEADER_END___ #}
 {% extends "page_ngds.html" %}
 {%- block content %}
 <div id="bulk-upload-page">
-<h2>{{_('Bulk Upload Dataset')}}</h2>
+<h2>{{_('Bulk Upload Collection')}}</h2>
 <span id="desc">{{_('Submit bulk datasets to share with community')}}</span>
 
 <form method="post" action="{{ h.url_for(controller='ckanext.ngds.ngdsui.controllers.contribute:ContributeController', action='bulk_upload_handle') }}" enctype="multipart/form-data"  >

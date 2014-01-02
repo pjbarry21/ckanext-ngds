@@ -39,7 +39,7 @@ def publish_dataset(context, data_dict):
     #Change the group to be coming from global setting...
     check1 = new_authz.has_user_permission_for_group_or_org(helpers.get_default_group(), user, 'publish_dataset')
     if not check1:
-        return {'success': False, 'msg': _('User %s not authorized to publish dataset') % (str(user))}
+        return {'success': False, 'msg': _('User %s not authorized to publish collection') % (str(user))}
     return {'success': True}
 
 def manage_nodes(context, data_dict):

@@ -133,7 +133,7 @@ class NGDSValidator(object):
         if self._resource_list:
             for resource in self._resource_list:
                 if resource not in upload_field_list:
-                    raise Exception(toolkit._("Uploaded resource %s is not referenced against any dataset.") % resource)
+                    raise Exception(toolkit._("Uploaded resource %s is not referenced against any collection.") % resource)
                     
             if len(upload_field_list) > len(self._resource_list):
                 raise Exception(toolkit._("Referenced resources are not uploaded."))

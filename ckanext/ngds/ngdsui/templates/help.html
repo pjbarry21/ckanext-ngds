@@ -39,10 +39,10 @@
 
         <h3>Map</h3>
 		<p style="text-align: center;"><img src="/images/help/screen-map_controls.PNG" style="float: inherit;" width="75%"></img></p>
-        <p>The map is used to search the NGDS metadata catalog; search results are displayed in list form in the search interface on the left side of the map; and as colored rectangles on the map representing the physical extent of the features described by each dataset. Map controls are as follows:</p>
+        <p>The map is used to search the NGDS metadata catalog; search results are displayed in list form in the search interface on the left side of the map; and as colored rectangles on the map representing the physical extent of the features described by each collection. Map controls are as follows:</p>
 		<ul>
 		<li><strong>Search by Keyword</strong> (<img src="/images/help/screen-map_controls-search.PNG"></img>): Search the metadata catalog by keyword(s); enter search terms and press the <strong>Enter</strong> key or click the <strong>magnifying glass</strong> button; the results will appear in list form beneath the search field as well as on the map</li>
-		<li><strong>Draw a Rectangle</strong> (<img src="/images/help/screen-map_controls-search_by_area.PNG"></img>): Use this tool to search for results within a given area by drawing a rectangle on the map. Having drawn a rectangle, click the <strong>magnifying glass</strong> button; any dataset describing features within the rectangle that has just been drawn will appear as search results</li>
+		<li><strong>Draw a Rectangle</strong> (<img src="/images/help/screen-map_controls-search_by_area.PNG"></img>): Use this tool to search for results within a given area by drawing a rectangle on the map. Having drawn a rectangle, click the <strong>magnifying glass</strong> button; any collection describing features within the rectangle that has just been drawn will appear as search results</li>
 		<li><strong>Clear Rectangle</strong> (<img src="/images/help/screen-map_controls-stop_searching_by_area.PNG"></img>): Use this tool to stop drawing a rectangle or remove a rectangle that has been drawn with the <strong>Draw a Rectangle tool</strong></li>
 		<li><strong>Clear Results</strong> (<img src="/images/help/screen-map_controls-remove_layer.PNG"></img>): Click this button to remove all search results from the map</li>
 		<li><strong>Show/Hide Results</strong> (<img src="/images/help/screen-map_controls-center_layer.PNG"></img>): Click this button to toggle the visibility of search results</li>
@@ -62,12 +62,12 @@
 		
 		<p>To filter a search, click the filter criteria on the left side of the screen to expand them; click the check box by each desired filter. Filter criteria are as follows:</p>
 		<ul>
-		<li><strong>Category</strong>: Filter results by category and subcategory. For example, one category is drilling technology, which includes a variety of subcategories related to drilling, such as the presence or absence of casing diagrams. Clicking the checkbox associated with any these subcategories will exclude any datasets that do not include the indicated  information.</li>
-		<li><strong>Format</strong>: Filter results by dataset format; formats include data types and online resources, such as web services. Clicking the checkbox associated with any of these formats will exclude any datasets that do not match the indicated format(s).</li>
-		<li><strong>Source & Author</strong>: Filter results by source and-or author. Clicking the checkbox associated with a specific source or author will exclude any datasets not submitted by the indicated source(s) or author(</li>
-		<li><strong>Status</strong>: Filter results by the status of the dataset within the context of the NGDS project. Dataset status tends to reflect the state of completion of the dataset; for example, typical NGDS datasets will be either completed, ongoing, or deprecated. Clicking the checkbox associated within a given state will exclude any datasets that fall outside the selected state.</li>
+		<li><strong>Category</strong>: Filter results by category and subcategory. For example, one category is drilling technology, which includes a variety of subcategories related to drilling, such as the presence or absence of casing diagrams. Clicking the checkbox associated with any these subcategories will exclude any collections that do not include the indicated  information.</li>
+		<li><strong>Format</strong>: Filter results by collection format; formats include data types and online resources, such as web services. Clicking the checkbox associated with any of these formats will exclude any collections that do not match the indicated format(s).</li>
+		<li><strong>Source & Author</strong>: Filter results by source and-or author. Clicking the checkbox associated with a specific source or author will exclude any collections not submitted by the indicated source(s) or author(</li>
+		<li><strong>Status</strong>: Filter results by the status of the collection within the context of the NGDS project. Collection status tends to reflect the state of completion of the collection; for example, typical NGDS collections will be either completed, ongoing, or deprecated. Clicking the checkbox associated within a given state will exclude any collections that fall outside the selected state.</li>
 		<li><strong>Content Model</strong>: Filter results by the content model to which the dataset conforms. Each NGDS dataset conforms to a specific content model. Clicking the checkbox beside a specific content model will exclude any datasets that do not conform to the indicated content model(s).</li>
-		<li><strong>Public/Private</strong>: Filter results by the visibility of the dataset. When published, users can designate whether or not a given dataset is publicly accessible of listed privately. Clicking the appropriate checkbox will exclude datasets on the basis of whether or not they are public or private.</li>
+		<li><strong>Public/Private</strong>: Filter results by the visibility of the collection. When published, users can designate whether or not a given collection is publicly accessible of listed privately. Clicking the appropriate checkbox will exclude collections on the basis of whether or not they are public or private.</li>
     </section>
 
     <section id="ngds/resources" class="help-content">
@@ -137,7 +137,7 @@
 		<li><strong>URL</strong>: The URL at which this collection will be found. This URL is automatically generated when the <strong>Title</strong> field is populated, but it can be modified manually</li>
 		<li><strong>Description</strong>: A description of the collection and the metadata records stored in it</li>
 		<li><strong>Tags</strong>: Keywords that can be used to search for this collection and any metadata records stored in it</li>
-		<li><strong>License</strong>: The license under which any dataset(s) described by any metadata record(s) within this collection are published; among other things, the license determines the manner in which the dataset described by the metadata in this collection can be reused. Information on supported licenses can be found at the following locations:
+		<li><strong>License</strong>: The license under which any collection(s) described by any metadata record(s) within this collection are published; among other things, the license determines the manner in which the collection described by the metadata in this collection can be reused. Information on supported licenses can be found at the following locations:
 		<ul>
 		<li><a href="http://creativecommons.org/" target="_blank" >Creative Commons</a></li>
 		<li><a href="http://www.gnu.org/licenses/fdl.html" target="_blank">GNU Free Documentation License</a></li>
@@ -156,7 +156,7 @@
 		</ul>
 		<p>Data resource types are as follows:</p>
 		<ul>
-		<li><strong>Structured Resource</strong>: Data that has been mapped to an interchange format such as an <a href="http://schemas.usgin.org/" target="_blank">NGDS data exchange content model</a>; if the data in the dataset described by this metadata record has been mapped to an NGDS data exchange content model, specify the content model to which the data has been mapped. Fields specific to this resource type are as follows:</p>
+		<li><strong>Structured Resource</strong>: Data that has been mapped to an interchange format such as an <a href="http://schemas.usgin.org/" target="_blank">NGDS data exchange content model</a>; if the data in the collection described by this metadata record has been mapped to an NGDS data exchange content model, specify the content model to which the data has been mapped. Fields specific to this resource type are as follows:</p>
 		<ul>
 		<li><strong>Content Model</strong>: The NGDS content model to which the data resource described by this metadata record conforms</li>
 		<li><strong>Content Model Version</strong>: The NGDS content model version to which the data resource described by this metadata record conforms</li>
@@ -166,7 +166,7 @@
 		</li>
 		<li><strong>Unstructured Resource</strong>: Data such as plain text, a scanned image, or a sound file that cannot be processed or analyzed by machines without user input. Fields specific to this resource type are as follows:
 		<ul>
-		<li><strong>Distributor</strong>: The individual, agency, company, or organization responsible for distributing the dataset described by this metadata record</li>
+		<li><strong>Distributor</strong>: The individual, agency, company, or organization responsible for distributing the collection described by this metadata record</li>
 		<li><strong>Format</strong>: The file format of the data resource described by this metadata record</li>
 		</ul>
 		</li>
@@ -212,7 +212,7 @@
 		<li><strong>Status</strong>: The workflow status of data resource(s) described by metadata record(s) in the collection</li>
 		<li><strong>Publication Date</strong>: The date on which data resource(s) described by metadata record(s) in the collection were published</li>
 		<li><strong>Language</strong>: The language in which the data resource(s) described by metadata record(s) in the collection are written</li>
-		<li><strong>Dataset Extent</strong>: The physical extent of features in the data resource(s) described by metadata record(s) in the collection; click the <strong>Draw a rectangle button</strong> (<img src="/images/help/screen-map_controls-search_by_area.PNG"></img>) to draw a box indicating the dataset extent</li>
+		<li><strong>Dataset Extent</strong>: The physical extent of features in the data resource(s) described by metadata record(s) in the collection; click the <strong>Draw a rectangle button</strong> (<img src="/images/help/screen-map_controls-search_by_area.PNG"></img>) to draw a box indicating the collection extent</li>
 		</ul>
 		<p>When done, click <strong>Finish</strong>. Doing so will finalize this collection and all metadata records within it; these records will be added to the catalog.</p>
 		<h4>Bulk Uploads</h4>

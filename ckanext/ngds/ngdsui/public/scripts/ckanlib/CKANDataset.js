@@ -63,7 +63,7 @@ ngds.ckandataset = function (raw) {
                     {
                         'tag': 'p',
                         'attributes': {
-                            'text': "Dataset has " + raw.num_resources + (function (n) {
+                            'text': "Collection has " + raw.num_resources + (function (n) {
                                 if (n === 1) {
                                     return " resource";
                                 } else {
