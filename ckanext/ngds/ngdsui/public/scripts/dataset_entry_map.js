@@ -43,17 +43,20 @@ $(document).ready(function () {
    });
 
 // Add the control panel
+    var drawings = new L.FeatureGroup();
     var drawControl = new L.Control.Draw({
-        position: 'topright',
-        polyline: false,
-        circle: false,
-        polygon: false,
-        marker: false
+        position: 'topleft',
+        draw: {
+            polyline: false,
+            circle: false,
+            polygon: false,
+            marker: false
+        }
     });
     map.addControl(drawControl);
 
     var clearControl = new L.Clear({
-        position: 'topright'
+        position: 'topleft'
     });
     map.addControl(clearControl);
 
@@ -61,10 +64,12 @@ $(document).ready(function () {
     var drawnItems = new L.LayerGroup();
     map.addLayer(drawnItems);
 
-    map.on('draw:rectangle-created', function (e) {
+    map.on('draw:created', function (e) {
+        var layer = e.layer;
         drawnItems.clearLayers();
-        drawnItems.addLayer(e.rect);
-        var geojson = JSON.stringify(e.rect.toGeoJSON().geometry);
+        drawnItems.addLayer(layer);
+
+        var geojson = JSON.stringify(layer.toGeoJSON().geometry);
         $('#field-extras-10-value').val(geojson);
     });
 });
